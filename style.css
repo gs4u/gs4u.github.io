@@ -1,6 +1,19 @@
 @media (prefers-color-scheme: dark) {
+
 	body {
 		color: #cbcbcb;
 		background-color: #2a2a2a;
 	}
+	a {
+		color: #3491ff;
+	}
+
+	a:hover {
+		color: #0074ff;
+	}
+
+	a:visited {
+		color: #8583ff;
+	}
+
 }

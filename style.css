@@ -1,3 +1,34 @@
+#pagination {
+	padding: 10px;
+}
+#pagination .page {
+	padding: 5px;
+	border: 1px solid #777;
+	margin: 3px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+#pagination .page.current {
+	border-color: #000;
+}
+#header .filter {
+	margin-bottom: 15px;
+}
+#header .filter .game_alias {
+	cursor: pointer;
+	border: 1px solid #777;
+	border-radius: 16px;
+	padding: 8px 10px 5px;
+}
+#header .filter .remove {
+	color: #f00;
+	margin-left: 5px;
+	font-size: 150%;
+	font-family: Arial, sans-serif;
+}
+#header .filter .remove:before {
+	content: 'x';
+}
 @media (prefers-color-scheme: dark) {
 
 	body {

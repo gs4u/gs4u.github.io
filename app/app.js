@@ -213,7 +213,7 @@ GS4uApp = {
 			.text(map);
 	},
 	showPagination: function () {
-		let _c = 3;
+		let _c = 2;
 		let _start = GS4uApp.summary.page - _c;
 		if (_start < 1) {
 			_start = 1;

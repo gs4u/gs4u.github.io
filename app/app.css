@@ -37,11 +37,13 @@ a:visited {
 	padding: 10px;
 }
 #pagination .page {
-	padding: 5px 7px;
+	padding: 3px;
 	border: 1px solid var(--border-action);
-	margin: 3px;
+	margin: 2px;
 	cursor: pointer;
 	border-radius: 5px;
+	min-width: 35px;
+	display: inline-block;
 }
 #pagination .page.current {
 	border-color: var(--border);
@@ -49,7 +51,7 @@ a:visited {
 #header {
 	position: sticky;
 	top: 0;
-	padding: 10px;
+	padding: 30px 10px 10px;
 	background-color: var(--backgound);
 	border-bottom: 1px solid var(--border);
 	margin-bottom: 5px;

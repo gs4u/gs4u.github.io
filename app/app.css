@@ -4,9 +4,9 @@
 	--border-action: #999;
 	--backgound: #fff;
 	--remove-action-color: #b00;
-	--a-color: #3491ff;
-	--a-hover-color: #0074ff;
-	--a-visited-color: #8583ff;
+	--a-color: #3f8ae0;
+	--a-hover-color: #2c81e3;
+	--a-visited-color: #3f8ae0;
 }
 @media (prefers-color-scheme: dark) {
 	:root {
@@ -16,6 +16,10 @@
 		--backgound: #222;
 		--remove-action-color: #b00;
 	}
+}
+html,
+body {
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 body {
 	font-family: Arial, sans-serif;
@@ -74,10 +78,11 @@ a:visited {
 #header .filter .remove:before {
 	content: 'x';
 }
-#serverlist {
-
+#serverlist.gs4u div.row {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--border);
 }
-
 #footer {
 	border-top: 1px solid var(--border);
 	position: sticky;

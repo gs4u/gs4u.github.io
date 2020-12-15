@@ -11,6 +11,7 @@
 		jQuery(document).ready(function () {
 			let _params = {};
 			let _ga = 'all';
+			let _vk_mini_app = false;
 			let _qp = document.location.toString().split('?');
 			if (_qp.length > 1) {
 				_qp = _qp[1];
@@ -28,8 +29,14 @@
 			if(_params['game_alias'] && _params['game_alias'] != '') {
 				_ga = _params['game_alias'];
 			}
+			if(_params['vk_app_id'] && _params['vk_app_id'] != '') {
+				_vk_mini_app = true;
+			}
 			GS4uApp.init(
-				{'game_alias': _ga}
+				{
+					'game_alias': _ga,
+					'vk_mini_app': _vk_mini_app
+				}
 			);
 		});
 	</script>

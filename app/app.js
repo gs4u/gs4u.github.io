@@ -11,8 +11,12 @@ GS4uApp = {
 	filter_selector: '#header .filter',
 	summary_selector: '#header .summary',
 	show_game: true,
+	vk_mini_app: false,
 	init: function (options) {
 		if (options) {
+			if(options.vk_mini_app) {
+				GS4uApp.vk_mini_app = options.vk_mini_app;
+			}
 			if (options.game_alias) {
 				GS4uApp.game_alias = options.game_alias;
 			}
@@ -21,6 +25,11 @@ GS4uApp = {
 			}
 		}
 		GS4uApp.changePage(1);
+		if(GS4uApp.vk_mini_app) {
+			jQuery.getScript('https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js', function () {
+				vkBridge.send('VKWebAppInit');
+			});
+		}
 	},
 	changePage: function (pageNumber) {
 		GS4uApp.page = pageNumber;

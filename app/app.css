@@ -1,0 +1,85 @@
+:root {
+	--text-color: #000;
+	--border: #CCC;
+	--border-action: #999;
+	--backgound: #fff;
+	--remove-action-color: #b00;
+	--a-color: #3491ff;
+	--a-hover-color: #0074ff;
+	--a-visited-color: #8583ff;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--text-color: #CCC;
+		--border: #555;
+		--border-action: #999;
+		--backgound: #222;
+		--remove-action-color: #b00;
+	}
+}
+body {
+	font-family: Arial, sans-serif;
+	padding: 0 5px;
+	margin: 0;
+	color: var(--text-color);
+	background-color: var(--backgound);
+}
+a {
+	color: var(--a-color);
+}
+a:hover {
+	color: var(--a-hover-color);
+}
+a:visited {
+	color: var(--a-visited-color);
+}
+#pagination {
+	padding: 10px;
+}
+#pagination .page {
+	padding: 5px 7px;
+	border: 1px solid var(--border-action);
+	margin: 3px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+#pagination .page.current {
+	border-color: var(--border);
+}
+#header {
+	position: sticky;
+	top: 0;
+	padding: 10px;
+	background-color: var(--backgound);
+	border-bottom: 1px solid var(--border);
+	margin-bottom: 5px;
+}
+#header .filter {
+	padding-top: 5px;
+}
+#header .filter .game_alias {
+	cursor: pointer;
+	border: 1px solid var(--border);
+	border-radius: 16px;
+	padding: 8px 10px 5px;
+}
+#header .filter .remove {
+	color: var(--remove-action-color);
+	margin-left: 5px;
+	font-size: 150%;
+	font-family: Arial, sans-serif;
+}
+#header .filter .remove:before {
+	content: 'x';
+}
+#serverlist {
+
+}
+
+#footer {
+	border-top: 1px solid var(--border);
+	position: sticky;
+	bottom: 0;
+	background-color: var(--backgound);
+	text-align: center;
+}

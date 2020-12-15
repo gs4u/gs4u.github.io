@@ -9,12 +9,13 @@ GS4uApp = {
 	server_list_head_selector: '#serverlist .thead',
 	pagination_selector: '#pagination',
 	filter_selector: '#header .filter',
-	summary_selector: '#header .summary',
+	summary_servers_count_selector: '#header .summary .servers_count',
+	summary_pages_info_selector: '#header .summary .pages_info',
 	show_game: true,
 	vk_mini_app: false,
 	init: function (options) {
 		if (options) {
-			if(options.vk_mini_app) {
+			if (options.vk_mini_app) {
 				GS4uApp.vk_mini_app = options.vk_mini_app;
 			}
 			if (options.game_alias) {
@@ -25,7 +26,7 @@ GS4uApp = {
 			}
 		}
 		GS4uApp.changePage(1);
-		if(GS4uApp.vk_mini_app) {
+		if (GS4uApp.vk_mini_app) {
 			jQuery.getScript('https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js', function () {
 				vkBridge.send('VKWebAppInit');
 			});
@@ -177,7 +178,7 @@ GS4uApp = {
 			}
 		}
 	},
-	removeGameFilter: function() {
+	removeGameFilter: function () {
 		GS4uApp.game_alias = 'all';
 		GS4uApp.changePage(1);
 		let _f = jQuery(GS4uApp.filter_selector);
@@ -212,7 +213,7 @@ GS4uApp = {
 			.text(map);
 	},
 	showPagination: function () {
-		let _c = 5;
+		let _c = 3;
 		let _start = GS4uApp.summary.page - _c;
 		if (_start < 1) {
 			_start = 1;
@@ -240,10 +241,10 @@ GS4uApp = {
 		}
 	},
 	showSummary: function () {
-		let _s = jQuery(GS4uApp.summary_selector);
-		_s.text('Серверов: ' + GS4uApp.summary.total +
-			'. Страница ' + GS4uApp.summary.page + ' из ' + GS4uApp.summary.pagesTotal + '.');
-		//
+		let _s = jQuery(GS4uApp.summary_servers_count_selector);
+		_s.text('Серверов: ' + GS4uApp.summary.total);
+		_s = jQuery(GS4uApp.summary_pages_info_selector);
+		_s.text('Страница ' + GS4uApp.summary.page + ' из ' + GS4uApp.summary.pagesTotal);
 	},
 	showListHead: function () {
 		jQuery(GS4uApp.server_list_head_selector).empty();

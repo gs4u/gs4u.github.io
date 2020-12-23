@@ -199,7 +199,7 @@ GS4uApp = {
 			.addClass('ipport')
 			.append(
 				jQuery('<span>')
-					.text(ip, port)
+					.text(ip + ':' + port)
 			);
 	},
 	getServerPlayersElement: function (players, players_max) {

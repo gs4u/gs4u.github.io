@@ -1,3 +1,21 @@
+.server {
+	padding-bottom: 30px;
+}
+
+.server .title {
+	font-weight: bold;
+	min-width: 80px;
+	display: inline-block;
+}
+
+.server .server-name .title {
+	display: none;
+}
+
+.server .server-name .value {
+	font-size: 150%;
+}
+
 @media (prefers-color-scheme: dark) {
 
 	body {

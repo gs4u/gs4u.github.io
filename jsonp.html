@@ -1,0 +1,18 @@
+<html lang="en">
+<head>
+	<title>JSONP example</title>
+	<link href="style.css" rel="stylesheet"/>
+	<script src="script.js"></script>
+	<script async src="https://www.gs4u.net/ru/s/129481.json?callback=GS4u.parseServerResponse"></script>
+	<script>
+		var GS4u = {
+			parseServerResponse: function(server) {
+				addServerToList(server);
+			}
+		};
+	</script>
+</head>
+<body>
+<div id="servers" style="width: 500px;"></div>
+</body>
+</html>

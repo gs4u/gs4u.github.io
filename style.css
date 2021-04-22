@@ -1,19 +1,46 @@
 .server {
-	padding-bottom: 30px;
+	padding-bottom: 50px;
+	position: relative;
 }
 
 .server .title {
 	font-weight: bold;
 	min-width: 80px;
 	display: inline-block;
+	opacity: 0.7;
 }
 
-.server .server-name .title {
+.server .server-address {
+	padding-bottom: 5px;
+}
+
+.server .server-map-image {
+	display: inline-block;
+	float: left;
+}
+
+.server .server-game,
+.server .server-status,
+.server .server-password,
+.server .server-players-count,
+.server .server-map,
+.server .server-country {
+	padding-left: 175px;
+}
+
+.server .server-name .title,
+.server .server-address .title {
 	display: none;
 }
 
 .server .server-name .value {
 	font-size: 150%;
+	color: #95784c;
+}
+
+.server .server-address .value {
+	color: #cb7a00;
+	font-size: 120%;
 }
 
 @media (prefers-color-scheme: dark) {

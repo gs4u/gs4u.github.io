@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+	<title>JSONP example</title>
+	<style>
+		#container {
+			width: 560px;
+			border: solid 1px #999999;
+		}
+	</style>
+	<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="container">
+
+
+<!-- START GS4u VK App -->
+<style>
+	#gs4u .gs4u-footer, #gs4u .gs4u-header {
+		font-weight: bold;
+	}
+	#gs4u .gs4u-header {
+		background-color: rgba(106, 106, 106, 0.8);
+		color: #ffffff;
+	}
+	#gs4u .gs4u-server, #gs4u .gs4u-footer, #gs4u .gs4u-header {
+		padding: 5px;
+	}
+	#gs4u .gs4u-c1 {
+		max-width: 75%;
+		display: inline-block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	#gs4u .gs4u-c2 {
+		float: right;
+	}
+	#gs4u .gs4u-list .gs4u-server:nth-child(2n) {
+		background-color: rgba(122, 122, 122, 0.4);
+	}
+</style>
+<script async src="https://www.gs4u.net/ru/vkapp.json?id=g89421517&v=2&callback=GS4uResponse"></script>
+<script>
+	function GS4uResponse(data) {
+		if (data && data.servers && data.servers.length || data.servers.length === 0) {
+			document.querySelector('#gs4u .gs4u-list').innerHTML = '';
+			for (let i = 0; i < data.servers.length; i++) {
+				let server = data.servers[i];
+				addServerToList(server);
+			}
+			document.querySelector('#gs4u .gs4u-footer .gs4u-c2').innerHTML =
+				data.summary.all_servers_players + ' / ' + data.summary.all_servers_players_max;
+		} else {
+			console.error(JSON.stringify(data));
+		}
+	}
+	function addServerToList(server) {
+		let el = document.querySelector('#gs4u .gs4u-list');
+		let _srv = document.createElement('div');
+		_srv.className = 'gs4u-server';
+		let _srv_name = document.createElement('span');
+		_srv_name.className = 'gs4u-c1';
+		_srv_name.innerText = server.name;
+		_srv.appendChild(_srv_name);
+		let _srv_online = document.createElement('span');
+		_srv_online.className = 'gs4u-c2';
+		_srv_online.innerText = server.players + ' / ' + server.players_max;
+		_srv.appendChild(_srv_online);
+		el.appendChild(_srv);
+	}
+</script>
+<div id="gs4u">
+	<div class="gs4u-header"><span class="gs4u-c1">Server</span><span class="gs4u-c2">Online</span></div>
+	<div class="gs4u-list">Loading...</div>
+	<div class="gs4u-footer"><span class="gs4u-c1">Online</span><span class="gs4u-c2">? / ?</span></div>
+</div>
+<!-- END GS4u VK App -->
+
+
+<hr>
+<h2>Source code</h2>
+<a href="https://github.com/gs4u/gs4u.github.io/blob/master/vkjsonp2.html" target="_blank">
+	https://github.com/gs4u/gs4u.github.io/blob/master/vkjsonp2.html
+</a>
+</div>
+</body>
+</html>

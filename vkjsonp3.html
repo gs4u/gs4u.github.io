@@ -11,10 +11,29 @@
 	<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
+<h1>VK App JSONP API example with server names override.</h1>
+<div><b>EN</b>:</div>
+<div>Example of using VK JSONP API to display number of players on servers. This example shows how you can display your names for the servers.</div>
+<div>Use "<b>server_short_names</b>" to configure the names of the servers you want to display.</div>
+<hr>
+<div><b>RU</b>:</div>
+<div>Пример использования VK JSONP API для отображения количества игроков на серверах. В данном примере показано, как можно отображать свои названия для серверов.</div>
+<div>Используйте "<b>server_short_names</b>" для настройки названия серверов, которые хотите отображать.</div>
+<hr>
+<br>
+<br>
 <div id="container">
 
 
 <!-- START GS4u VK App -->
+<script>
+	//SET OWN SHORT NAMES FOR SERVERS
+	const server_short_names = {
+		//SERVER_ID: SERVER_SHORT_NAME
+		'166639': 'Server 1, id 166639',
+		'186091': 'Server 2, id 186091'
+	}
+</script>
 <style>
 	#gs4u .gs4u-footer, #gs4u .gs4u-header {
 		font-weight: bold;
@@ -62,6 +81,9 @@
 		let _srv_name = document.createElement('span');
 		_srv_name.className = 'gs4u-c1';
 		_srv_name.innerText = server.name;
+		if(server_short_names[server.id]) {
+			_srv_name.innerText = server_short_names[server.id];
+		}
 		_srv.appendChild(_srv_name);
 		let _srv_online = document.createElement('span');
 		_srv_online.className = 'gs4u-c2';
@@ -81,11 +103,8 @@
 </div>
 <hr>
 <h2>Source code</h2>
-<a href="https://github.com/gs4u/gs4u.github.io/blob/master/vkjsonp2.html" target="_blank">
-	https://github.com/gs4u/gs4u.github.io/blob/master/vkjsonp2.html
+<a href="https://github.com/gs4u/gs4u.github.io/blob/master/vkjsonp3.html" target="_blank">
+	https://github.com/gs4u/gs4u.github.io/blob/master/vkjsonp3.html
 </a>
-<hr>
-<h3>Example with override of servernames</h3>
-<a href="vkjsonp3.html">Example with override of servernames</a>
 </body>
 </html>

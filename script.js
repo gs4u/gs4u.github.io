@@ -44,10 +44,10 @@ function addServerToList(server) {
 		null,
 		null,
 		'' +
-		'<picture><source srcset="https://www.gs4u.net/ru/map/' + server.gamealias + '/' + server.map + '.png 1x,' +
-			' https://www.gs4u.net/ru/mapx2/' + server.gamealias + '/' + server.map + '.png 2x">' +
+		'<picture><source srcset="https://www.gs4u.net/ru/map/' + server.gamealias + '/' + encodeURI(server.map) + '.png 1x,' +
+			' https://www.gs4u.net/ru/mapx2/' + server.gamealias + '/' + encodeURI(server.map) + '.png 2x">' +
 			'<img alt="' + server.map +
-			'" src="https://www.gs4u.net/en/map/' + server.gamealias + '/' + server.map + '.png"></picture>',
+			'" src="https://www.gs4u.net/en/map/' + server.gamealias + '/' + encodeURI(server.map) + '.png"></picture>',
 		'server-map-image'
 	);
 	addPropertyToServer(

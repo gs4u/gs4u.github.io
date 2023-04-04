@@ -7,6 +7,7 @@
 	<link href="app.css" rel="stylesheet"/>
 	<script src="app.js"></script>
 	<script src="../vendor/jquery-3.5.1.min.js"></script>
+	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 	<script>
 		jQuery(document).ready(function () {
 			let _params = {};
@@ -38,6 +39,24 @@
 					'vk_mini_app': _vk_mini_app
 				}
 			);
+			// Отправляет событие инициализации нативному клиенту
+			vkBridge.send('VKWebAppInit');
+			if(vkBridge)
+			{
+				vkBridge.send('VKWebAppShowBannerAd', {
+					banner_location: 'bottom'
+				})
+					.then((data) => {
+						if (data.result) {
+							// Баннерная реклама отобразилась
+						}
+					})
+					.catch((error) => {
+						// Ошибка
+						console.log(error);
+					});
+			}
+
 		});
 	</script>
 </head>
